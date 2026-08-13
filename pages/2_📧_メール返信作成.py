@@ -1,8 +1,10 @@
 import streamlit as st
 
+from utils.auth import require_password
 from utils.ui import generate_and_display, render_sidebar, require_api_key
 
 st.set_page_config(page_title="メール返信作成", page_icon="📧", layout="wide")
+require_password()
 render_sidebar()
 
 st.title("📧 メール返信作成")

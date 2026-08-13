@@ -1,5 +1,6 @@
 import streamlit as st
 
+from utils.auth import require_password
 from utils.ui import render_sidebar
 
 st.set_page_config(
@@ -8,6 +9,7 @@ st.set_page_config(
     layout="wide",
 )
 
+require_password()
 render_sidebar()
 
 st.title("✍️ AIライティングツール")
