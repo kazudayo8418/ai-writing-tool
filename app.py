@@ -33,14 +33,3 @@ for i, (icon, name, desc) in enumerate(tools):
         with st.container(border=True):
             st.markdown(f"#### {icon} {name}")
             st.write(desc)
-
-st.divider()
-st.markdown(
-    """
-##### 初回セットアップ
-1. [Google AI Studio](https://aistudio.google.com/apikey) でGemini APIキーを無料で発行
-2. 左のサイドバーの「⚙️ 設定」にAPIキーを入力
-   （毎回入力したくない場合は `.env` に `GEMINI_API_KEY=...` と書くか、`.streamlit/secrets.toml` に設定してください）
-3. 左のメニューから使いたいツールを選んで実行
-"""
-)
