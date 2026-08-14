@@ -12,10 +12,17 @@ st.set_page_config(
 require_password()
 render_sidebar()
 
+st.markdown(
+    "<div style='color:#4F46E5; font-weight:700; letter-spacing:0.04em; "
+    "font-size:0.85rem; text-transform:uppercase; margin-bottom:4px;'>"
+    "AI WRITING SUITE</div>",
+    unsafe_allow_html=True,
+)
 st.title("✍️ AIライティングツール")
-st.caption("Gemini APIを使った、個人用のオールインワン文章作成アシスタントです。")
+st.caption("Gemini APIを使った、オールインワン文章作成アシスタントです。")
 
-st.markdown("### 左のメニューから使いたいツールを選んでください")
+st.markdown("#### 左のメニューから使いたいツールを選んでください")
+st.write("")
 
 tools = [
     ("📝", "ブログ・Note記事作成", "テーマとキーワードから、構成付きの記事を自動生成します。"),
@@ -30,6 +37,11 @@ tools = [
 cols = st.columns(2)
 for i, (icon, name, desc) in enumerate(tools):
     with cols[i % 2]:
-        with st.container(border=True):
-            st.markdown(f"#### {icon} {name}")
-            st.write(desc)
+        st.markdown(
+            f"""<div class="tool-card">
+                <div class="tool-badge">{icon}</div>
+                <div class="tool-name">{name}</div>
+                <p class="tool-desc">{desc}</p>
+            </div>""",
+            unsafe_allow_html=True,
+        )
